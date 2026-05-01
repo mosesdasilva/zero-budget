@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zero Budget</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <div class="brand">
+          <strong>Zero Budget</strong>
+          <span>Local monthly budget</span>
+        </div>
+        <nav class="tabs">
+          <button class="tab-button active" data-tab="dashboard">Dashboard</button>
+          <button class="tab-button" data-tab="budget">Budget</button>
+          <button class="tab-button" data-tab="transactions">Transactions</button>
+          <button class="tab-button" data-tab="import">Import</button>
+          <button class="tab-button" data-tab="rules">Rules</button>
+          <button class="tab-button" data-tab="reports">Reports</button>
+          <button class="tab-button" data-tab="settings">Settings</button>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <h1 id="view-title">Dashboard</h1>
+            <p id="view-subtitle">Your current zero-based budget snapshot.</p>
+          </div>
+          <label class="month-picker">
+            Month
+            <input id="budget-month" type="month">
+          </label>
+        </header>
+
+        <section id="dashboard" class="view active-view" aria-labelledby="dashboard-heading">
+          <h2 id="dashboard-heading">Dashboard</h2>
+          <div class="stat-grid" id="dashboard-stats"></div>
+          <div class="two-column">
+            <section class="panel">
+              <h3>Overspent Categories</h3>
+              <div id="overspent-list" class="stack"></div>
+            </section>
+            <section class="panel">
+              <h3>Needs Attention</h3>
+              <div id="attention-list" class="stack"></div>
+            </section>
+          </div>
+        </section>
+
+        <section id="budget" class="view" aria-labelledby="budget-heading">
+          <div class="section-header">
+            <div>
+              <h2 id="budget-heading">Budget</h2>
+              <p>Plan every dollar for the selected month.</p>
+            </div>
+            <button id="add-category-button" type="button">Add Category</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Group</th>
+                  <th>Planned</th>
+                  <th>Actual</th>
+                  <th>Remaining</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="budget-table"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="transactions" class="view" aria-labelledby="transactions-heading">
+          <div class="section-header">
+            <div>
+              <h2 id="transactions-heading">Transactions</h2>
+              <p>Manual entries and imported bank activity.</p>
+            </div>
+          </div>
+          <form id="transaction-form" class="form-grid">
+            <label>Date <input name="date" type="date" required></label>
+            <label>Payee <input name="payee" type="text" required></label>
+            <label>Amount <input name="amount" type="number" step="0.01" required></label>
+            <label>Category <select name="category"></select></label>
+            <label>Account <input name="account" type="text" value="Checking"></label>
+            <label>Memo <input name="memo" type="text"></label>
+            <button type="submit">Add Transaction</button>
+          </form>
+          <div class="filters">
+            <label>Search <input id="transaction-search" type="search" placeholder="Payee, memo, account"></label>
+            <label>Status
+              <select id="transaction-filter">
+                <option value="all">All</option>
+                <option value="uncategorized">Uncategorized</option>
+                <option value="fees">Fees</option>
+                <option value="subscriptions">Subscriptions</option>
+              </select>
+            </label>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Payee</th>
+                  <th>Amount</th>
+                  <th>Category</th>
+                  <th>Account</th>
+                  <th>Flags</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="transactions-table"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="import" class="view" aria-labelledby="import-heading">
+          <h2 id="import-heading">Import CSV</h2>
+          <div class="panel">
+            <label>Upload CSV <input id="csv-file" type="file" accept=".csv,text/csv"></label>
+            <label>Or paste CSV text
+              <textarea id="csv-text" rows="8" placeholder="Date,Description,Debit,Credit,Account"></textarea>
+            </label>
+            <button id="preview-import-button" type="button">Preview Import</button>
+          </div>
+          <div id="mapping-panel" class="panel hidden">
+            <h3>Column Mapping</h3>
+            <div class="form-grid compact" id="mapping-fields"></div>
+            <button id="import-transactions-button" type="button">Import Transactions</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead id="import-preview-head"></thead>
+              <tbody id="import-preview-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="rules" class="view" aria-labelledby="rules-heading">
+          <div class="section-header">
+            <div>
+              <h2 id="rules-heading">Merchant Rules</h2>
+              <p>Simple payee contains rules for future imports.</p>
+            </div>
+          </div>
+          <form id="rule-form" class="form-grid compact">
+            <label>Payee contains <input name="matchText" type="text" required></label>
+            <label>Category <select name="category"></select></label>
+            <button type="submit">Add Rule</button>
+          </form>
+          <div id="rules-list" class="stack"></div>
+        </section>
+
+        <section id="reports" class="view" aria-labelledby="reports-heading">
+          <div class="section-header">
+            <div>
+              <h2 id="reports-heading">Markdown Report</h2>
+              <p>Generate a monthly review from the current budget data.</p>
+            </div>
+            <button id="download-report-button" type="button">Download Markdown</button>
+          </div>
+          <textarea id="report-output" rows="24" spellcheck="false"></textarea>
+        </section>
+
+        <section id="settings" class="view" aria-labelledby="settings-heading">
+          <h2 id="settings-heading">Settings</h2>
+          <div class="panel danger-zone">
+            <h3>Local Data</h3>
+            <p>Data is stored only in this browser using localStorage.</p>
+            <button id="export-json-button" type="button">Export JSON Backup</button>
+            <button id="reset-data-button" type="button">Reset Starter Data</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

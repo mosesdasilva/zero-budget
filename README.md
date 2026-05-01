@@ -8,11 +8,7 @@ See [AGENTS.md](AGENTS.md) for the working project brief and implementation guid
 
 ## Current Status
 
-Project planning has started. The app itself has not been scaffolded yet.
-
-## Next Step
-
-Create the static app scaffold:
+The first static app scaffold lives in `simple-budget/`:
 
 ```text
 simple-budget/
@@ -24,5 +20,8 @@ simple-budget/
     sample-report.md
 ```
 
-Then build the first usable dashboard with starter categories and local browser storage.
+Open `simple-budget/index.html` in a browser to try the starter app.
 
+## Next Step
+
+Review the first scaffold manually, then decide whether to improve the budget screen, transaction entry, or CSV import flow next.
