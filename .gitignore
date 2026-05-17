@@ -1,0 +1,11 @@
+# Local bank exports and cleaned personal imports should stay off GitHub.
+private-imports/
+*.cleaned.csv
+*.classified.csv
+
+# The live budget file contains personal data. Keep an example in Git instead.
+data/zero-budget.json
+data/backups/
+
+# Local server logs.
+server*.log

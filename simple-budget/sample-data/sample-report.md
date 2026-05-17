@@ -2,27 +2,47 @@
 
 ## Month
 
-2026-05
+2026-02
 
 ## Income Summary
 
-- Expected income: $5,000.00
-- Imported income found: $2,500.00
+- Budget basis income: $3,500.00
+- Basis source: fallback expected income
+- Current month income found: $3,200.00
+
+| Source | Planned | Received |
+| --- | ---: | ---: |
+| Primary Job | $3,200.00 | $0.00 |
+| Side Work | $300.00 | $0.00 |
 
 ## Planned vs Actual Spending
 
 | Category | Planned | Actual | Remaining |
 | --- | ---: | ---: | ---: |
-| Groceries | $500.00 | $86.42 | $413.58 |
-| Gas | $180.00 | $42.10 | $137.90 |
-| Subscriptions | $75.00 | $26.48 | $48.52 |
-| Fees | $25.00 | $15.50 | $9.50 |
+| Giving | $350.00 | $0.00 | $350.00 |
+| Tax Fund | $350.00 | $0.00 | $350.00 |
+| Savings Fund | $300.00 | $0.00 | $300.00 |
+| Rent | $900.00 | $0.00 | $900.00 |
+| Groceries | $400.00 | $86.42 | $313.58 |
+| Gas | $120.00 | $42.10 | $77.90 |
+| Restaurants | $150.00 | $0.00 | $150.00 |
+| Subscriptions | $40.00 | $15.49 | $24.51 |
 
 ## Zero-Based Status
 
-- Planned total: $5,000.00
+- Planned total: $3,500.00
 - Unassigned money: $0.00
 - Status: Zero-based
+
+## Funds
+
+| Fund | January Balance | Planned This Month | Activity This Month | Available |
+| --- | ---: | ---: | ---: | ---: |
+| Giving Fund | $0.00 | $350.00 | $0.00 | $350.00 |
+| Tax Fund | $1,000.00 | $350.00 | $0.00 | $1,350.00 |
+| Emergency Fund | $5,000.00 | $0.00 | $0.00 | $5,000.00 |
+| Savings Fund | $2,000.00 | $300.00 | $0.00 | $2,300.00 |
+| Tuition Fund | $0.00 | $0.00 | $0.00 | $0.00 |
 
 ## Overspent Categories
 
@@ -30,21 +50,19 @@
 
 ## Fees Found
 
-- 2026-05-05 MONTHLY MAINTENANCE FEE: -$12.00
-- 2026-05-08 ATM FEE: -$3.50
+- None
 
 ## Subscriptions Found
 
-- 2026-05-04 NETFLIX.COM: -$15.49
-- 2026-05-07 SPOTIFY USA: -$10.99
+- 2026-02-04 STREAMING SERVICE: -$15.49
 
 ## Uncategorized Transactions
 
-- 2026-05-06 UNKNOWN MARKET: -$28.77
+- None
 
 ## Suggested Merchant Rules
 
-- If payee contains "UNKNOWN", category =
+- None
 
 ## Notes
 

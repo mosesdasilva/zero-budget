@@ -1,0 +1,84 @@
+{
+  "month": "2026-02",
+  "expectedIncome": 3500,
+  "incomeSources": [
+    {
+      "id": "income-primary-job",
+      "name": "Primary Job",
+      "planned": 3200,
+      "received": 0
+    },
+    {
+      "id": "income-side-work",
+      "name": "Side Work",
+      "planned": 300,
+      "received": 0
+    }
+  ],
+  "categories": [
+    { "id": "cat-giving", "name": "Giving", "group": "Giving", "planned": 350 },
+    { "id": "cat-emergency-fund", "name": "Emergency Fund", "group": "Savings", "planned": 0 },
+    { "id": "cat-tax-fund", "name": "Tax Fund", "group": "Savings", "planned": 350 },
+    { "id": "cat-savings-fund", "name": "Savings Fund", "group": "Savings", "planned": 300 },
+    { "id": "cat-tuition-fund", "name": "Tuition Fund", "group": "Savings", "planned": 0 },
+    { "id": "cat-rent", "name": "Rent", "group": "Housing", "planned": 900 },
+    { "id": "cat-utilities", "name": "Utilities", "group": "Housing", "planned": 200 },
+    { "id": "cat-gas", "name": "Gas", "group": "Transportation", "planned": 120 },
+    { "id": "cat-groceries", "name": "Groceries", "group": "Food", "planned": 400 },
+    { "id": "cat-restaurants", "name": "Restaurants", "group": "Food", "planned": 150 },
+    { "id": "cat-phone", "name": "Phone", "group": "Personal", "planned": 60 },
+    { "id": "cat-personal", "name": "Personal", "group": "Personal", "planned": 100 },
+    { "id": "cat-subscriptions", "name": "Subscriptions", "group": "Personal", "planned": 40 },
+    { "id": "cat-miscellaneous", "name": "Miscellaneous", "group": "Lifestyle", "planned": 80 },
+    { "id": "cat-health", "name": "Health", "group": "Health", "planned": 0 },
+    { "id": "cat-auto-insurance", "name": "Auto Insurance", "group": "Insurance", "planned": 150 },
+    { "id": "cat-credit-card", "name": "Credit Card", "group": "Debt", "planned": 100 },
+    { "id": "cat-car-loan", "name": "Car Loan", "group": "Debt", "planned": 200 }
+  ],
+  "funds": [
+    { "id": "fund-giving", "name": "Giving Fund", "category": "Giving", "openingBalance": 0, "plannedThisMonth": 350, "activityThisMonth": 0 },
+    { "id": "fund-tax", "name": "Tax Fund", "category": "Tax Fund", "openingBalance": 1000, "plannedThisMonth": 350, "activityThisMonth": 0 },
+    { "id": "fund-emergency", "name": "Emergency Fund", "category": "Emergency Fund", "openingBalance": 5000, "plannedThisMonth": 0, "activityThisMonth": 0 },
+    { "id": "fund-savings", "name": "Savings Fund", "category": "Savings Fund", "openingBalance": 2000, "plannedThisMonth": 300, "activityThisMonth": 0 },
+    { "id": "fund-tuition", "name": "Tuition Fund", "category": "Tuition Fund", "openingBalance": 0, "plannedThisMonth": 0, "activityThisMonth": 0 }
+  ],
+  "monthlyFunds": {
+    "2026-02": [
+      { "id": "fund-giving", "name": "Giving Fund", "category": "Giving", "openingBalance": 0, "plannedThisMonth": 350, "activityThisMonth": 0 },
+      { "id": "fund-tax", "name": "Tax Fund", "category": "Tax Fund", "openingBalance": 1000, "plannedThisMonth": 350, "activityThisMonth": 0 },
+      { "id": "fund-emergency", "name": "Emergency Fund", "category": "Emergency Fund", "openingBalance": 5000, "plannedThisMonth": 0, "activityThisMonth": 0 },
+      { "id": "fund-savings", "name": "Savings Fund", "category": "Savings Fund", "openingBalance": 2000, "plannedThisMonth": 300, "activityThisMonth": 0 },
+      { "id": "fund-tuition", "name": "Tuition Fund", "category": "Tuition Fund", "openingBalance": 0, "plannedThisMonth": 0, "activityThisMonth": 0 }
+    ]
+  },
+  "rules": [
+    { "id": "rule-grocery", "matchText": "GROCERY", "category": "Groceries" },
+    { "id": "rule-fuel", "matchText": "FUEL", "category": "Gas" },
+    { "id": "rule-streaming", "matchText": "STREAMING", "category": "Subscriptions" },
+    { "id": "rule-payroll", "matchText": "PAYROLL", "category": "Income" }
+  ],
+  "transactions": [
+    {
+      "id": "tx-1",
+      "date": "2026-02-01",
+      "payee": "PAYROLL DIRECT DEP",
+      "memo": "Paycheck",
+      "amount": 3200,
+      "category": "Income",
+      "account": "Checking",
+      "source": "manual",
+      "status": "cleared"
+    },
+    {
+      "id": "tx-2",
+      "date": "2026-02-02",
+      "payee": "LOCAL GROCERY",
+      "memo": "DEBIT",
+      "amount": -86.42,
+      "category": "Groceries",
+      "account": "Checking",
+      "source": "manual",
+      "status": "cleared"
+    }
+  ]
+}

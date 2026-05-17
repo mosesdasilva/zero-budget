@@ -16,6 +16,7 @@
         <nav class="tabs">
           <button class="tab-button active" data-tab="dashboard">Dashboard</button>
           <button class="tab-button" data-tab="budget">Budget</button>
+          <button class="tab-button" data-tab="funds">Funds</button>
           <button class="tab-button" data-tab="transactions">Transactions</button>
           <button class="tab-button" data-tab="import">Import</button>
           <button class="tab-button" data-tab="rules">Rules</button>
@@ -30,10 +31,14 @@
             <h1 id="view-title">Dashboard</h1>
             <p id="view-subtitle">Your current zero-based budget snapshot.</p>
           </div>
-          <label class="month-picker">
-            Month
-            <input id="budget-month" type="month">
-          </label>
+          <div class="month-controls" aria-label="Budget month controls">
+            <button id="previous-month-button" class="secondary icon-button" type="button" aria-label="Previous month" title="Previous month">&lt;</button>
+            <label class="month-picker">
+              Month
+              <input id="budget-month" type="month">
+            </label>
+            <button id="next-month-button" class="secondary icon-button" type="button" aria-label="Next month" title="Next month">&gt;</button>
+          </div>
         </header>
 
         <section id="dashboard" class="view active-view" aria-labelledby="dashboard-heading">
@@ -55,10 +60,11 @@
           <div class="section-header">
             <div>
               <h2 id="budget-heading">Budget</h2>
-              <p>Plan every dollar for the selected month.</p>
+              <p>Plan the selected month using income from the previous month.</p>
             </div>
             <button id="add-category-button" type="button">Add Category</button>
           </div>
+          <div class="stat-grid budget-income-grid" id="budget-income-summary"></div>
           <div class="table-wrap">
             <table>
               <thead>
@@ -72,6 +78,32 @@
                 </tr>
               </thead>
               <tbody id="budget-table"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="funds" class="view" aria-labelledby="funds-heading">
+          <div class="section-header">
+            <div>
+              <h2 id="funds-heading">Funds</h2>
+              <p>Track sinking fund balances separately from monthly spending. Planned giving and tax use the previous month's official income.</p>
+            </div>
+            <button id="add-fund-button" type="button">Add Fund</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Fund</th>
+                  <th>Budget Category</th>
+                  <th id="fund-opening-label">Previous Month Balance</th>
+                  <th>Planned This Month</th>
+                  <th>Activity This Month</th>
+                  <th>Available</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="funds-table"></tbody>
             </table>
           </div>
         </section>
@@ -102,6 +134,26 @@
                 <option value="subscriptions">Subscriptions</option>
               </select>
             </label>
+            <label>Type
+              <select id="transaction-type-filter">
+                <option value="all">All types</option>
+              </select>
+            </label>
+            <label>Sort
+              <select id="transaction-sort">
+                <option value="date-desc">Date newest first</option>
+                <option value="date-asc">Date oldest first</option>
+                <option value="amount-desc">Amount high to low</option>
+                <option value="amount-asc">Amount low to high</option>
+                <option value="income-first">Income first</option>
+                <option value="spending-first">Spending first</option>
+                <option value="payee-asc">Payee A to Z</option>
+                <option value="category-asc">Category A to Z</option>
+                <option value="category-desc">Category Z to A</option>
+                <option value="type-asc">Type A to Z</option>
+                <option value="type-desc">Type Z to A</option>
+              </select>
+            </label>
           </div>
           <div class="table-wrap">
             <table>
@@ -109,6 +161,7 @@
                 <tr>
                   <th>Date</th>
                   <th>Payee</th>
+                  <th>Type</th>
                   <th>Amount</th>
                   <th>Category</th>
                   <th>Account</th>
@@ -124,6 +177,7 @@
         <section id="import" class="view" aria-labelledby="import-heading">
           <h2 id="import-heading">Import CSV</h2>
           <div class="panel">
+            <p class="helper-text">Use the local cleaner script first for bank exports with routing or account fields, then upload the cleaned CSV here.</p>
             <label>Upload CSV <input id="csv-file" type="file" accept=".csv,text/csv"></label>
             <label>Or paste CSV text
               <textarea id="csv-text" rows="8" placeholder="Date,Description,Debit,Credit,Account"></textarea>
@@ -133,6 +187,8 @@
           <div id="mapping-panel" class="panel hidden">
             <h3>Column Mapping</h3>
             <div class="form-grid compact" id="mapping-fields"></div>
+            <p id="import-summary" class="helper-text"></p>
+            <div id="import-category-summary" class="stack"></div>
             <button id="import-transactions-button" type="button">Import Transactions</button>
           </div>
           <div class="table-wrap">
@@ -173,7 +229,8 @@
           <h2 id="settings-heading">Settings</h2>
           <div class="panel danger-zone">
             <h3>Local Data</h3>
-            <p>Data is stored only in this browser using localStorage.</p>
+            <p>When running from localhost, data is saved to the local JSON file. If the server is unavailable, the app falls back to browser localStorage.</p>
+            <p id="data-location" class="helper-text"></p>
             <button id="export-json-button" type="button">Export JSON Backup</button>
             <button id="reset-data-button" type="button">Reset Starter Data</button>
           </div>

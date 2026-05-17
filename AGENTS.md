@@ -257,6 +257,13 @@ The monthly report should include:
 - Do not add branding, landing pages, animations, or marketing copy.
 - Test by opening the app locally and using the sample CSV.
 
+## Git Checkpoints
+
+- Keep commits small and topic-based.
+- Commit the current stable work before starting a separate feature.
+- Prefer commit messages that describe user-visible progress, such as `Add transaction type sorting`.
+- Keep private bank exports, cleaned imports, live budget data, and server logs out of Git.
+
 ## Suggested Step Plan
 
 1. Create the static project scaffold and sample files.
@@ -268,4 +275,3 @@ The monthly report should include:
 7. Add fee/subscription detection.
 8. Add CSV export and Markdown report export.
 9. Polish README instructions and run through sample data manually.
-

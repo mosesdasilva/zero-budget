@@ -22,6 +22,22 @@ simple-budget/
 
 Open `simple-budget/index.html` in a browser to try the starter app.
 
+For the local app version with a JSON data file, run:
+
+```powershell
+npm start
+```
+
+Then open `http://localhost:3000`.
+
+On Windows, you can also double-click:
+
+```text
+Start-ZeroBudget.bat
+```
+
+That launcher starts the local server if it is not already running, then opens the app in your browser.
+
 ## Next Step
 
 Review the first scaffold manually, then decide whether to improve the budget screen, transaction entry, or CSV import flow next.
